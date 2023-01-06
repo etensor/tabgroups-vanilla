@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> TabsKeeper </title>
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+
+  <body>
+      <p> &nbsp; &nbsp; TabsKeeper &nbsp; &nbsp;  </p>
+      <label for="input-el">
+        Link
+        <input type="text" id="input-el"/>      
+      </label><br/>
+      
+
+      <button id="input-btn" > Save Link </button>
+      <button id="savetab-btn"> Save Tab </button>
+      <button id="export-btn"> Export </button>
+      <button id="clear-btn"> Clear </button>
+      <br/>
+      <button id="savewindow-btn" > Save Window </button>
+      <button id="savegroup-btn"> Save Group </button>
+      <button id="opengroup-btn"> Open Group </button>
+      
+      <hr/>
+      <div class="container">
+        <ul id="groups-tab"></ul>
+        <div class="vertical-line"></div>
+        <ul id="saved-entries"></ul>
+      </div>
+      
+      <script src="../js/index.js"></script>
+      <!-- type: module allows top level async but no inline -->
+  </body>
+
+</html>

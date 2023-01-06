@@ -1,0 +1,144 @@
+
+html {
+  color: #222;
+  font-size: 1.1em;
+  font-family: "Arial";
+  width: 420px;
+}
+
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #308830;
+  padding: 0;
+}
+
+
+/* Own content... */
+
+p {
+  text-align: right;
+  text-decoration: overline darkred;
+  text-decoration-thickness: 2px;
+  padding-right: 5%;
+  color: #fffe27;
+}
+
+input {
+  width: inherit;
+  background-color: inherit;
+  color: #aaee00;
+  padding-left: 3%;
+  padding-right: 3%;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  text-align: center;
+  border-style: groove;
+  border-color: slategray;
+  margin: auto;
+  padding: 2px;
+  align-content: center;
+  color: #efefa6;
+  background-color: #180000;
+}
+
+#input-btn{
+  font-weight: bold;
+  margin: 1vh;
+  background-color: #00b24e;
+  color: whitesmoke;
+  text-decoration: underline;
+  border-radius: 6px;
+}
+
+#savewindow-btn {
+  font-weight: bold;
+  margin: 1vh;
+  background-color: #529b04;
+  color: whitesmoke;
+  text-decoration: dotted underline;
+  border-radius: 6px;
+  padding-bottom: 2px;
+}
+
+#savetab-btn{
+  font-weight: bold;
+  margin: 1vh;
+  background-color: #103c8c;
+  color: whitesmoke;
+  border-radius: 8px;
+}
+
+ul {
+  list-style-position: inside;
+  font-size: 0.8em;
+}
+
+li a {
+  color: yellow;
+  overflow-wrap: break-word;
+}
+
+li {
+  margin-top: 5px;
+  list-style-type: none;
+  text-align: left;
+}
+
+li a:hover {
+  font-size: 1.1em;
+  color: red;
+}
+
+
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+#groups-tab {
+  padding-left: 0;
+  padding-right: 0;
+  width: 15%;
+  transition: transform 0.3s ease-in-out;
+}
+
+#groups-tab:hover {
+  transform: translateX(20%);
+}
+
+#groups-tab a {
+  color: orange;
+  text-decoration: none;
+}
+
+#groups-tab li:hover {
+  list-style-type: upper-roman;
+}
+
+#saved-entries {
+  width: 85%;
+  padding-left: 5%;
+}
+
+.vertical-line {
+  border-left: 1px dashed rgba(240, 255, 240, 0.7);
+  height: 100%;
+  position: absolute;
+  left: 20%;
+  top: inherit;
+  bottom: inherit;
+}
+
+
+

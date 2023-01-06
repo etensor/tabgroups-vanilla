@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "TabsKeeperAspero",
+  "description": "save your window tabs for later",
+  "action": {
+    "default_popup": "src/html/index.html",
+    "default_icon": "icon.png"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab"
+  ]
+}
