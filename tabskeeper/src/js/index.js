@@ -2,16 +2,10 @@
 
 let newLinks = []
 let tabGroups = {}
-const inputBtn = document.getElementById("input-btn")
-const inputEl = document.getElementById("input-el")
-const entries = document.getElementById("saved-entries")
-const clearBtn = document.getElementById("clear-btn")
-const saveTabBtn = document.getElementById("savetab-btn")
-const saveWindowBtn = document.getElementById("savewindow-btn")
-const linksLocalStorage = JSON.parse( localStorage.getItem("localGroup"))
-const groupsTab = document.getElementById("groups-tab")
 
-
+import { loadGroups } from './loadgroups.js'
+import { inputBtn,inputEl,entries,clearBtn,
+  saveTabBtn,saveWindowBtn,linksLocalStorage,groupsTab }from './objs.js'
 
 
 if (linksLocalStorage){
@@ -21,27 +15,6 @@ if (linksLocalStorage){
 }
 
 
-function loadGroups(){
-  let keys = Object.keys(localStorage)
-  let tabContent = "<h4>Groups</h4>"
-  for (let i = 0; i < keys.length; i++){
-    /*tabContent += `
-    <li>
-      <a target="_self" onclick="printGroup('${keys[i]}')">
-        ${keys[i]}
-      </a>
-    </li>
-    */
-   tabContent += `
-    <li>
-      <a id="group-${i}" href='#'>
-        ${keys[i]}
-      </a>
-    </li>
-    `
-  }
-  groupsTab.innerHTML = tabContent
-}
 loadGroups()
 
 
