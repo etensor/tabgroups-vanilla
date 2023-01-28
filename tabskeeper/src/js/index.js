@@ -3,9 +3,11 @@
 let newLinks = []
 let tabGroups = {}
 
-import { loadGroups } from './loadgroups.js'
+import { loadGroups, reloadGroups } from './loadgroups.js'
 import { inputBtn,inputEl,entries,clearBtn,
-  saveTabBtn,saveWindowBtn,linksLocalStorage,groupsTab }from './elements.js'
+  saveTabBtn,saveWindowBtn,linksLocalStorage,groupsTab, saveGroupBtn } from './elements.js'
+
+import { render } from './render.js'
 
 
 if (linksLocalStorage){
@@ -14,8 +16,14 @@ if (linksLocalStorage){
   render(newLinks)
 }
 
+// haxitos time
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
-tabGroups = loadGroups()
+inputEl.addEventListener("keypress", function(event) {
+  if (event.key === 'Enter') {
+    inputBtn.click();
+  }
+})
 
 
 saveTabBtn.addEventListener("click", function(){
@@ -25,7 +33,7 @@ saveTabBtn.addEventListener("click", function(){
         console.log("Link already saved")
       }else{
         newLinks.push(tabs[0].url)
-        localStorage.setItem("newGroup", JSON.stringify(newLinks))
+        localStorage.setItem("_new", JSON.stringify(newLinks))
         render(newLinks) // they have been updated.
       }
     })
@@ -35,7 +43,8 @@ saveTabBtn.addEventListener("click", function(){
 saveWindowBtn.addEventListener("click", function(){
   chrome.tabs.query({currentWindow: true},
       function(tabs){
-        let newWindowGroupName = prompt("Name this group", "HaxingTabs")
+        let currentDate = new Date().toJSON().slice(0, 10)
+        let newWindowGroupName = prompt( "Name this group", currentDate )
 
         tabGroups[newWindowGroupName] = {
           'groupName': newWindowGroupName,
@@ -59,6 +68,21 @@ saveWindowBtn.addEventListener("click", function(){
       })
 })
 
+saveGroupBtn.addEventListener("click", function(){
+  let currentDate = new Date().toJSON().slice(0, 10)
+  let newGroupName = prompt( "Name this group", currentDate )
+  tabGroups[newGroupName] = JSON.parse(localStorage.getItem("_new") ?? {})
+  localStorage.setItem(newGroupName, JSON.stringify(tabGroups[newGroupName]))
+  localStorage.removeItem("_new")
+  loadGroups()
+  reloadGroups()
+  render(tabGroups[newGroupName])
+  
+})
+
+
+
+
 function objectReduce(_orgObj,...args){
   let newObj = {}
   args.forEach(x => newObj[x] = _orgObj)
@@ -66,37 +90,7 @@ function objectReduce(_orgObj,...args){
 }
 
 
-function render(links_arr){
-  let listEntries = ""
-  
-  if (Array.isArray(links_arr)){
-    for (let i = 0; i < links_arr.length; i++) {
-      // template string -> raw <- supports js
-      listEntries += `
-    <li>
-        <a target='_blank' href='${links_arr[i]}'>
-            ${links_arr[i]}
-        </a>
-        <hr/>
-    </li>
-    `
-    }
-  }else{ // an object <- a group of links
-    for (let i = 0; i < links_arr.titles.length; i++){
-      // template string -> raw <- supports js
-      listEntries += `
-      <li>
-          <img src='${links_arr.favicons[i]}' width=16 height=16/>
-          <a id='linkG-${i}' target='_blank' href='${links_arr.urls[i]}'>
-          ${links_arr.titles[i]}
-          </a>
-          <hr/>
-      </li>
-      `
-    }
-  }
-  entries.innerHTML = listEntries
-}
+
 
 
 //let thisSite = prompt("Alalo papu", "euler")
@@ -110,14 +104,18 @@ async function getCurrentTab(){
 */
 
 
-inputBtn.addEventListener("click", function() {
+inputBtn.addEventListener("click", async function() {
   //entries.innerHTML += "<li>" + entry.value + "</li>"
   if (inputEl.value){
     if (newLinks.includes(inputEl.value)) {
-      window.alert("Link already saved")
+      console.log("Link already saved")
+      document.getElementById("messages-box").innerHTML = "   ⚠    Link already saved"
+      await delay(2800);
+      document.getElementById("messages-box").innerHTML = ""
+      
     }else{
       newLinks.push(inputEl.value)
-      localStorage.setItem("newGroup", JSON.stringify(newLinks))
+      localStorage.setItem("_new", JSON.stringify(newLinks))
     }
   }
   inputEl.value = ""
@@ -132,10 +130,11 @@ clearBtn.addEventListener("dblclick", function(){
   localStorage.clear()
   newLinks = []
   tabGroups = {}
+  loadGroups()
   render(newLinks)
 })
 
 loadGroups()
 
-
+reloadGroups()
 

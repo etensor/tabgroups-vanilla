@@ -4,8 +4,9 @@ const entries = document.getElementById("saved-entries")
 const clearBtn = document.getElementById("clear-btn")
 const saveTabBtn = document.getElementById("savetab-btn")
 const saveWindowBtn = document.getElementById("savewindow-btn")
-const linksLocalStorage = JSON.parse( localStorage.getItem("localGroup"))
+const linksLocalStorage = JSON.parse( localStorage.getItem("_new"))
 const groupsTab = document.getElementById("groups-tab")
+const saveGroupBtn = document.getElementById("savegroup-btn")
 
 export {
     inputBtn,
@@ -15,5 +16,6 @@ export {
     saveTabBtn,
     saveWindowBtn,
     linksLocalStorage,
-    groupsTab
+    groupsTab,
+    saveGroupBtn
 }
