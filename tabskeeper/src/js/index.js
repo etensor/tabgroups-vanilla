@@ -5,7 +5,7 @@ let tabGroups = {}
 
 import { loadGroups } from './loadgroups.js'
 import { inputBtn,inputEl,entries,clearBtn,
-  saveTabBtn,saveWindowBtn,linksLocalStorage,groupsTab }from './objs.js'
+  saveTabBtn,saveWindowBtn,linksLocalStorage,groupsTab }from './elements.js'
 
 
 if (linksLocalStorage){
@@ -15,7 +15,7 @@ if (linksLocalStorage){
 }
 
 
-loadGroups()
+tabGroups = loadGroups()
 
 
 saveTabBtn.addEventListener("click", function(){
@@ -25,7 +25,7 @@ saveTabBtn.addEventListener("click", function(){
         console.log("Link already saved")
       }else{
         newLinks.push(tabs[0].url)
-        localStorage.setItem("localGroup", JSON.stringify(newLinks))
+        localStorage.setItem("newGroup", JSON.stringify(newLinks))
         render(newLinks) // they have been updated.
       }
     })
@@ -54,7 +54,7 @@ saveWindowBtn.addEventListener("click", function(){
         } 
         console.log(tabGroups)
         localStorage.setItem(newWindowGroupName, JSON.stringify(tabGroups[newWindowGroupName]))
-        loadGroups()
+        tabGroups = loadGroups()
         render(tabGroups[newWindowGroupName])
       })
 })
@@ -114,10 +114,10 @@ inputBtn.addEventListener("click", function() {
   //entries.innerHTML += "<li>" + entry.value + "</li>"
   if (inputEl.value){
     if (newLinks.includes(inputEl.value)) {
-      console.log("Link already saved")
+      window.alert("Link already saved")
     }else{
       newLinks.push(inputEl.value)
-      localStorage.setItem("localGroup", JSON.stringify(newLinks))
+      localStorage.setItem("newGroup", JSON.stringify(newLinks))
     }
   }
   inputEl.value = ""
@@ -138,19 +138,4 @@ clearBtn.addEventListener("dblclick", function(){
 loadGroups()
 
 
-
-let groupLinks = document.querySelectorAll("a[id^='group-']")
-let groupNames = Object.keys(localStorage)
-if (groupNames){
-  groupNames.forEach(group => {
-    tabGroups[group] = JSON.parse(localStorage.getItem(group))
-  });
-}
-
-for (let i = 0; i < groupNames.length; i++) {
-  groupLinks[i].addEventListener("click", function () {
-    
-    render(tabGroups[groupNames[i]])
-  })
-}
 
