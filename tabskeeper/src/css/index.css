@@ -80,7 +80,7 @@ body {
 
 ul {
   list-style-position: inside;
-  font-size: 0.8em;
+  font-size: 0.85em;
 }
 
 li a {
@@ -96,7 +96,7 @@ li {
 
 li a:hover {
   font-size: 1.1em;
-  color: red;
+  color: white;
 }
 
 
@@ -114,7 +114,7 @@ li a:hover {
 }
 
 #groups-tab:hover {
-  transform: translateX(20%);
+  transform: translateX(25%);
 }
 
 #groups-tab a {
@@ -124,6 +124,13 @@ li a:hover {
 
 #groups-tab li:hover {
   list-style-type: upper-roman;
+  width: 120%;
+  transform: translateX(-20%);
+}
+
+#groups-tab a:hover {
+  font-size: 1.1em;
+  color: white;
 }
 
 #saved-entries {
@@ -132,7 +139,7 @@ li a:hover {
 }
 
 .vertical-line {
-  border-left: 1px dashed rgba(240, 255, 240, 0.7);
+  border-left: 1px solid rgba(240, 255, 240, 0.7);
   height: 100%;
   position: absolute;
   left: 20%;
@@ -162,4 +169,17 @@ li a:hover {
   }
 }
 */
+
+body::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 px rgba(5,10,10,0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
 

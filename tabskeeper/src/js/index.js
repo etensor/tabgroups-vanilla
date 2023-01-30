@@ -3,7 +3,7 @@
 let newLinks = []
 let tabGroups = {}
 
-import { loadGroups, reloadGroups } from './loadgroups.js'
+import { loadGroups, reloadGroups, addNewGroup } from './loadgroups.js'
 import { inputBtn,inputEl,entries,clearBtn,
   saveTabBtn,saveWindowBtn,linksLocalStorage,groupsTab, saveGroupBtn } from './elements.js'
 
@@ -63,19 +63,26 @@ saveWindowBtn.addEventListener("click", function(){
         } 
         console.log(tabGroups)
         localStorage.setItem(newWindowGroupName, JSON.stringify(tabGroups[newWindowGroupName]))
-        tabGroups = loadGroups()
+        loadGroups()
+        addNewGroup()
         render(tabGroups[newWindowGroupName])
       })
 })
 
 saveGroupBtn.addEventListener("click", function(){
-  let currentDate = new Date().toJSON().slice(0, 10)
+  //let currentDate = new Date().toJSON().slice(0, 10)
+  let currentDate = new Date().toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  }).split(' ').join('_');
   let newGroupName = prompt( "Name this group", currentDate )
   tabGroups[newGroupName] = JSON.parse(localStorage.getItem("_new") ?? {})
   localStorage.setItem(newGroupName, JSON.stringify(tabGroups[newGroupName]))
   localStorage.removeItem("_new")
   loadGroups()
-  reloadGroups()
+  //reloadGroups()
+  addNewGroup()
   render(tabGroups[newGroupName])
   
 })
@@ -136,5 +143,21 @@ clearBtn.addEventListener("dblclick", function(){
 
 loadGroups()
 
-reloadGroups()
 
+
+let groupLinks = document.querySelectorAll("a[id^='group-']")
+let groupNames = Object.keys(localStorage)
+if (groupNames){
+  groupNames.forEach(group => {
+    tabGroups[group] = JSON.parse(localStorage.getItem(group))
+  });
+}
+
+for (let i = 0; i < groupNames.length; i++) {
+  groupLinks[i].addEventListener("click", function () {
+    
+    render(tabGroups[groupNames[i]])
+  })
+}
+
+export { tabGroups }
