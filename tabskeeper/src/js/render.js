@@ -21,7 +21,7 @@ export function render( links_arr ){
       listEntries += `
       <li>
           <img src='${links_arr.favicons[i]}' width=16 height=16/>
-          <a id='linkG-${i}' target='_blank' href='${links_arr.urls[i]}'>
+          <a id='linkG-${i}' target='_blank' href='${fixUrl(links_arr.urls[i])}'>
           ${links_arr.titles[i]}
           </a>
           <hr/>
@@ -31,3 +31,13 @@ export function render( links_arr ){
   }
   entries.innerHTML = listEntries
 }
+
+function fixUrl(url){
+  if (url.indexOf(' ') >= 0){ return "about:blank"}
+  let urlx = url.trim()
+  if (!urlx.startsWith("http") & !urlx.endsWith("pdf")){
+    urlx = "https://" + urlx
+  }
+  return urlx
+}
+

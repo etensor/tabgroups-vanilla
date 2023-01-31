@@ -1,7 +1,6 @@
 
 html {
   color: #222;
-  font-size: 1.1em;
   font-family: "Arial";
   width: 420px;
 }
@@ -24,12 +23,15 @@ hr {
 
 .title {
   text-align: right;
+  display: block;
   text-decoration: overline yellow;
   text-decoration-thickness: 2px;
-  padding-right: 10%;
-  color: rgb(80,180,60);
+  color: whitesmoke;
   font-weight: bold;
+  margin-top: 0;
+  padding-right: 5%;
 }
+
 
 input {
   width: inherit;
@@ -96,7 +98,7 @@ body {
 
 ul {
   list-style-position: inside;
-  font-size: 0.85em;
+  font-size: 0.9em;
 }
 
 li a {
@@ -112,14 +114,10 @@ li {
 
 li a:hover {
   font-size: 1.1em;
-  color: white;
+  color: #d45358;
 }
 
-.selected.active  {
-  color: whitesmoke;
-  font-size: 1.1em;
-  text-decoration: underline;
-}
+
 
 .container {
   display: flex;
@@ -129,6 +127,7 @@ li a:hover {
 #groups-tab {
   padding-left: 0;
   padding-right: 0;
+  margin-top: 0;
   width: 15%;
   transition: transform 0.3s ease-in-out;
 }
@@ -138,21 +137,26 @@ li a:hover {
 }
 
 #groups-tab a {
-  color: orange;
+  color: white;
   text-decoration: none;
   margin-top: 2px;
   margin-bottom: 2px;
 }
 
 #groups-tab li:hover {
-  list-style-type: upper-roman;
+  list-style-type: hebrew;
   width: 120%;
   transform: translateX(-20%);
 }
 
+
 #groups-tab a:hover {
   font-size: 1.1em;
-  color: white;
+  color: yellow;
+}
+
+#groups-tab a:focus {
+  color: #57b1b7;
 }
 
 #saved-entries {
@@ -171,11 +175,13 @@ li a:hover {
 
 
 #messages-box {
-  width: 100%;
+  width: 65%;
   height: 100%;
   color: yellow;
   padding-top: 5px;
+  text-align: right;
 }
+
 
 /*
 #messages-box:hover {
