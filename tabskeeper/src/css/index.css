@@ -22,12 +22,13 @@ hr {
 
 /* Own content... */
 
-p {
+.title {
   text-align: right;
-  text-decoration: overline darkred;
+  text-decoration: overline yellow;
   text-decoration-thickness: 2px;
-  padding-right: 5%;
-  color: #fffe27;
+  padding-right: 10%;
+  color: rgb(80,180,60);
+  font-weight: bold;
 }
 
 input {
@@ -60,7 +61,7 @@ body {
   border-radius: 6px;
 }
 
-#savewindow-btn {
+#savewindow-btn, #savegroup-btn {
   font-weight: bold;
   margin: 1vh;
   background-color: #529b04;
@@ -74,6 +75,21 @@ body {
   font-weight: bold;
   margin: 1vh;
   background-color: #103c8c;
+  color: whitesmoke;
+  border-radius: 8px;
+}
+
+#export-btn, #opengroup-btn {
+  font-weight: bold;
+  margin: 1vh;
+  background-color: yellow;
+  border-radius: 6px;
+}
+
+#clear-btn {
+  font-weight: bold;
+  margin: 1vh;
+  background-color: #b20000;
   color: whitesmoke;
   border-radius: 8px;
 }
@@ -99,7 +115,11 @@ li a:hover {
   color: white;
 }
 
-
+.selected.active  {
+  color: whitesmoke;
+  font-size: 1.1em;
+  text-decoration: underline;
+}
 
 .container {
   display: flex;
@@ -120,6 +140,8 @@ li a:hover {
 #groups-tab a {
   color: orange;
   text-decoration: none;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 #groups-tab li:hover {

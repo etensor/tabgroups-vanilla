@@ -7,6 +7,9 @@ const saveWindowBtn = document.getElementById("savewindow-btn")
 const linksLocalStorage = JSON.parse( localStorage.getItem("_new"))
 const groupsTab = document.getElementById("groups-tab")
 const saveGroupBtn = document.getElementById("savegroup-btn")
+const exportBtn = document.getElementById("export-btn")
+const openGroupBtn = document.getElementById("opengroup-btn")
+
 
 export {
     inputBtn,
@@ -17,5 +20,7 @@ export {
     saveWindowBtn,
     linksLocalStorage,
     groupsTab,
-    saveGroupBtn
+    saveGroupBtn,
+    exportBtn,
+    openGroupBtn
 }

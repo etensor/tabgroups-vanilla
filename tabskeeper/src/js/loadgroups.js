@@ -1,11 +1,23 @@
 import { groupsTab } from './elements.js'
 import { render } from './render.js'
-import { tabGroups } from './index.js'
+// import { tabGroups } from './index.js'
+
+
+export function getTabGroups(){
+    let groups_tabs = {}
+    let groupNames = Object.keys(localStorage)
+    if (groupNames){
+    groupNames.forEach(group => {
+        groups_tabs[group] = JSON.parse(localStorage.getItem(group))
+    });
+    }
+    return groups_tabs
+}
 
 export function loadGroups(){
     let keys = Object.keys(localStorage)
     let tabContent = "<h4>Groups</h4>"
-    //let tabGroups = {}
+
     for (let i = 0; i < keys.length; i++) {
         /*tabContent += `
         <li>
@@ -22,9 +34,6 @@ export function loadGroups(){
     </li>
     `
     }
-  
-      localStorage
-
 
     groupsTab.innerHTML = tabContent
 }
@@ -32,7 +41,8 @@ export function loadGroups(){
 export function addNewGroup() {
   let newGroup = document.querySelector(`a[id^="group-${Object.keys(localStorage).length - 1}"]`)
   newGroup.addEventListener("click", function () {
-    render(tabGroups[Object.keys(localStorage)[Object.keys(localStorage).length - 1]])
+    let groups = getTabGroups()
+    render(groups[Object.keys(localStorage)[Object.keys(localStorage).length - 1]])
   })
 }
 

@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "version": "1.0",
+  "version": "1.0.1",
   "name": "TabsKeeperAspero",
   "description": "save your window tabs for later",
   "action": {
@@ -9,6 +9,7 @@
   },
   "permissions": [
     "tabs",
-    "activeTab"
+    "activeTab",
+    "storage"
   ]
 }
