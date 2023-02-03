@@ -34,16 +34,15 @@ export function render( links_arr ){
 
 function fixUrl(url){
   let urlx = url.trim()
-  if (url.indexOf(' ') >= 0){ return "about:blank"}
+
+  if (url.indexOf(' ') >= 0 || urlx.startsWith("file://")){ return "about:blank"}
   if (!urlx.startsWith("http") & !urlx.endsWith("pdf")){
     urlx = "https://" + urlx
   }
-
-  /*
   if (urlx.startsWith("file://")){
-    chrome.tabs.create( {url : urlx , active : true} )
-    return "about:blank"
-  }*/
+
+  }
 
   return urlx
 }
+
