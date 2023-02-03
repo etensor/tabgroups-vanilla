@@ -20,7 +20,7 @@ export function render( links_arr ){
       // template string -> raw <- supports js
       listEntries += `
       <li>
-          <img src='${links_arr.favicons[i]}' width=16 height=16/>
+          <img src='${links_arr.favicons[i]}' width=16 height=16/> &nbsp;&nbsp;
           <a id='linkG-${i}' target='_blank' href='${fixUrl(links_arr.urls[i])}'>
           ${links_arr.titles[i]}
           </a>
@@ -33,11 +33,17 @@ export function render( links_arr ){
 }
 
 function fixUrl(url){
-  if (url.indexOf(' ') >= 0){ return "about:blank"}
   let urlx = url.trim()
+  if (url.indexOf(' ') >= 0){ return "about:blank"}
   if (!urlx.startsWith("http") & !urlx.endsWith("pdf")){
     urlx = "https://" + urlx
   }
+
+  /*
+  if (urlx.startsWith("file://")){
+    chrome.tabs.create( {url : urlx , active : true} )
+    return "about:blank"
+  }*/
+
   return urlx
 }
-

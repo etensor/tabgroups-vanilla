@@ -88,6 +88,14 @@ body {
   border-radius: 6px;
 }
 
+#opengroupwindow-btn {
+  font-weight: bold;
+  margin: 1vh;
+  background-color: darkblue;
+  color: whitesmoke;
+  border-radius: 8px;
+}
+
 #clear-btn {
   font-weight: bold;
   margin: 1vh;
@@ -98,11 +106,12 @@ body {
 
 ul {
   list-style-position: inside;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 li a {
   color: yellow;
+  align-content: center;
   overflow-wrap: break-word;
 }
 
@@ -160,15 +169,15 @@ li a:hover {
 }
 
 #saved-entries {
-  width: 85%;
-  padding-left: 5%;
+  width: 86%;
+  padding-left: 2%;
 }
 
 .vertical-line {
   border-left: 1px solid rgba(240, 255, 240, 0.7);
   height: 100%;
   position: absolute;
-  left: 20%;
+  left: 15%;
   top: inherit;
   bottom: inherit;
 }
