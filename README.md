@@ -27,7 +27,8 @@ Doesn't collect any data.
  > * Deleting an entry from a group.
  > * Open group in a new window, or a native tabGroup.
  > * Lazy Loading the opened group.
- > * Would be nice to be able to sync it with other device.
+ > * Fetching site favicon on manual entry.
+ > * Would be nice to be able to sync it with other devices.
  
  
 ---
