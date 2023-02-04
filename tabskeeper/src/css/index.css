@@ -122,7 +122,7 @@ li {
 }
 
 li a:hover {
-  font-size: 1.1em;
+  font-size: 1.04em;
   color: #d45358;
 }
 
@@ -168,16 +168,21 @@ li a:hover {
   color: #57b1b7;
 }
 
+#groups-tab:hover + .vertical-line {
+  background-color: blue;
+}
+
 #saved-entries {
   width: 86%;
   padding-left: 2%;
 }
 
+
 .vertical-line {
   border-left: 1px solid rgba(240, 255, 240, 0.7);
   height: 100%;
   position: absolute;
-  left: 15%;
+  left: 16%;
   top: inherit;
   bottom: inherit;
 }
