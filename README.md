@@ -16,6 +16,11 @@ A chrome extension for once again grouping your browser tabs, made in vanilla js
 Doesn't collect any data. 
 > **_NOTE:_** If you clean your browser cache you delete your groups. <br/>
 
+
+![fdemo](https://user-images.githubusercontent.com/63891306/216790783-b602c365-caa2-4845-837f-b193a81e4a34.gif)
+
+
+
 **Missing:**
  > * Click on local file to open: No permissions.
  > >  ↳ Open as Group will work though.
