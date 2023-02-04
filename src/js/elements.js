@@ -9,7 +9,7 @@ const groupsTab = document.getElementById("groups-tab")
 const saveGroupBtn = document.getElementById("savegroup-btn")
 const exportBtn = document.getElementById("export-btn")
 const openGroupBtn = document.getElementById("opengroup-btn")
-
+const sGroup = document.getElementById("selected-group")
 
 export {
     inputBtn,
@@ -22,5 +22,6 @@ export {
     groupsTab,
     saveGroupBtn,
     exportBtn,
-    openGroupBtn
+    openGroupBtn,
+    sGroup
 }

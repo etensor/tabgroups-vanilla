@@ -65,3 +65,13 @@ export function reloadGroups() {
     })
     }
 }
+
+/*
+export function newGroup(name){
+  return {
+    groupName: name ?? "_new",
+    urls: [],
+    titles: [],
+    favicons: []
+  }
+}*/

@@ -196,6 +196,14 @@ li a:hover {
   text-align: right;
 }
 
+#selected-group {
+  color: #4f7f9b;
+  text-align: left;
+  position: absolute;
+  top: 2%;
+  left: 7%;
+  text-decoration: overline;
+}
 
 /*
 #messages-box:hover {

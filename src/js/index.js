@@ -99,6 +99,7 @@ saveGroupBtn.addEventListener("click", function(){
   }).split(' ').join('_');
   let newGroupName = prompt( "Name this group", currentDate )
   tabGroups[newGroupName] = JSON.parse(localStorage.getItem("_new") ?? {})
+  tabGroups[newGroupName].groupName = newGroupName
   localStorage.setItem(newGroupName, JSON.stringify(tabGroups[newGroupName]))
   localStorage.removeItem("_new")
   loadGroups()

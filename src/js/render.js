@@ -1,4 +1,4 @@
-import { entries } from './elements.js'
+import { entries, sGroup } from './elements.js'
 
 export function render( links_arr ){
   let listEntries = ""
@@ -16,6 +16,7 @@ export function render( links_arr ){
     `
     }
   }else{ // an object <- a group of links
+    sGroup.textContent = `${links_arr.groupName}`
     for (let i = 0; i < links_arr.titles.length; i++){
       // template string -> raw <- supports js
       listEntries += `
