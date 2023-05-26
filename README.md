@@ -1,8 +1,10 @@
 # tabgroups-vanilla
+
 A chrome extension for once again grouping your browser tabs, made in vanilla js.
-This was made only as a learning exercise
+ 
 ---
 
+note: this was made only as a learning exercise
 ### Features
 * Save a link
 * Save current tab (can be a local document)
@@ -32,6 +34,7 @@ Doesn't collect any data.
  
  
 ---
+
 
 If you can help me implement the lazy loading functionality or any other awesome feature, that would be nice and very welcomed.
 
