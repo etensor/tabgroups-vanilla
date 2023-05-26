@@ -1,6 +1,6 @@
 # tabgroups-vanilla
 A chrome extension for once again grouping your browser tabs, made in vanilla js.
-
+This was made only as a learning exercise
 ---
 
 ### Features
